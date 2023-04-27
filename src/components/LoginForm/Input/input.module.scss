@@ -1,0 +1,37 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins';
+.inputLabel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  width: 100%;
+
+  .input {
+    height: 48px;
+    padding: 12px 8px 12px 16px;
+    background-color: vars.$textColorLight;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 16px;
+    &::placeholder {
+      color: vars.$inputPlaceHolderColor;
+    }
+  }
+
+  .showPwdBtn {
+    @include mixins.btnReset;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+  }
+
+  .errorMessage {
+    margin-top: -4px;
+    align-self: flex-start;
+    font-size: 10px;
+    color: vars.$inputErrorColor;
+  }
+}
