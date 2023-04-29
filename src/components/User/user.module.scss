@@ -1,0 +1,22 @@
+.userInfo {
+  margin: 0;
+  margin-right: 130px;
+  max-width: 630px;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+
+  .contactLink {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 8px;
+    }
+  }
+}

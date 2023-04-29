@@ -1,10 +1,16 @@
 import React from 'react';
 import EyeOff from './EyeOff';
 import EyeOn from './EyeOn';
+import PhoneIcon from './PhoneIcon';
+import EmailIcon from './EmailIcon';
+import ArrowIcon from './ArrowIcon';
 
 export enum EIcons {
   eyeOff = 'EyeOff',
   eyeOn = 'EyeOn',
+  phoneIcon = 'PhoneIcon',
+  emailIcon = 'EmailIcon',
+  arrowIcon = 'ArrowIcon',
 }
 
 interface IIconProps {
@@ -23,6 +29,24 @@ export const Icon = ({ name, width = 24, height = 24 }: IIconProps) => {
     ),
     EyeOn: (
       <EyeOn
+        height={height}
+        width={width}
+      />
+    ),
+    PhoneIcon: (
+      <PhoneIcon
+        height={height}
+        width={width}
+      />
+    ),
+    EmailIcon: (
+      <EmailIcon
+        height={height}
+        width={width}
+      />
+    ),
+    ArrowIcon: (
+      <ArrowIcon
         height={height}
         width={width}
       />

@@ -6,7 +6,7 @@ import { EIcons, Icon } from '@/components/icons/Icon';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 
-type InputProps = {
+export type InputProps = {
   type: React.HTMLInputTypeAttribute;
   labelText: string;
   placeholder: string;
@@ -50,7 +50,7 @@ const Input: React.FC<InputProps> = ({
           placeholder={placeholder}
           value={value}
           onChange={handleChange}
-          //   required
+          required
         />
         {isPassword && (
           <button

@@ -1,0 +1,50 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins';
+.header {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-height: 265px;
+  background-color: vars.$bgColorHighLight;
+  color: vars.$bgColorMain;
+
+  &.headerFlex {
+    justify-content: flex-start;
+  }
+
+  .btnContainer {
+    position: absolute;
+    top: 32px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 80px;
+    padding-left: 80px;
+
+    &.noBack {
+      justify-content: flex-end;
+    }
+
+    .headerBtn {
+      @include mixins.btnReset;
+      padding: 8px 16px;
+      border: 1px solid vars.$textColorLight;
+      color: vars.$textColorLight;
+      border-radius: 8px;
+    }
+  }
+
+  .headerFlex {
+    display: flex;
+    align-items: center;
+    padding-left: 188px;
+  }
+
+  .headerStack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 846px;
+  }
+}

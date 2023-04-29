@@ -1,0 +1,8 @@
+@use '@/styles/mixins';
+
+.userList {
+  @include mixins.listReset;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

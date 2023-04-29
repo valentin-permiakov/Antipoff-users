@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import styles from './login-form.module.scss';
-import Input from './Input/Input';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import { useDispatch } from 'react-redux';
 import { resetState, updateState } from '@/store/signupSlice';
 import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import Input, { InputProps } from './Input/Input';
+import styles from './login-form.module.scss';
 
 type LoginFormProps = {};
 
@@ -15,6 +14,43 @@ const LoginForm: React.FC<LoginFormProps> = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  const INPUTS: Array<InputProps> = [
+    {
+      id: 'name',
+      labelText: 'Имя',
+      placeholder: 'Артур',
+      type: 'text',
+      value: formState.name.value,
+      error: formState.name.error,
+    },
+    {
+      id: 'email',
+      labelText: 'Электронная почта',
+      placeholder: 'example@mail.ru',
+      type: 'email',
+      value: formState.email.value,
+      error: formState.email.error,
+    },
+    {
+      id: 'password',
+      labelText: 'Пароль',
+      placeholder: '*****',
+      type: 'password',
+      value: formState.password.value,
+      error: formState.password.error,
+      isPassword: true,
+    },
+    {
+      id: 'confirmPassword',
+      labelText: 'Пароль',
+      placeholder: '*****',
+      type: 'password',
+      value: formState.confirmPassword.value,
+      error: formState.confirmPassword.error,
+      isPassword: true,
+    },
+  ];
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -109,40 +145,18 @@ const LoginForm: React.FC<LoginFormProps> = () => {
       onSubmit={handleSubmit}
     >
       <h2 className={styles.formHeader}>Регистрация</h2>
-      <Input
-        id='name'
-        labelText='Имя'
-        placeholder='Артур'
-        type='text'
-        value={formState.name.value}
-        error={formState.name.error}
-      />
-      <Input
-        id='email'
-        labelText='Электронная почта'
-        placeholder='example@mail.ru'
-        type='email'
-        value={formState.email.value}
-        error={formState.email.error}
-      />
-      <Input
-        id='password'
-        labelText='Пароль'
-        placeholder='*****'
-        type='password'
-        value={formState.password.value}
-        isPassword
-        error={formState.password.error}
-      />
-      <Input
-        id='confirmPassword'
-        labelText='Подтвердите пароль'
-        placeholder='*****'
-        type='password'
-        value={formState.confirmPassword.value}
-        isPassword
-        error={formState.confirmPassword.error}
-      />
+      {INPUTS.map((input, index) => (
+        <Input
+          id={input.id}
+          labelText={input.labelText}
+          placeholder={input.placeholder}
+          type={input.type}
+          value={input.value}
+          error={input.error}
+          isPassword={input.isPassword}
+          key={index}
+        />
+      ))}
 
       <button
         type='submit'
