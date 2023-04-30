@@ -164,6 +164,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
       >
         Зарегистрироваться
       </button>
+      {loading && <span>Регистрация...</span>}
       {error && <span>{error}</span>}
     </form>
   );
