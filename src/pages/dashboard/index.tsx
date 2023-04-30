@@ -3,18 +3,16 @@ import Header from '@/components/Header/Header';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import styles from './dashboard.module.scss';
-import UserList from '../../components/UserList/UserList';
+import UserList from '@/components/UserList/UserList';
 import { useDispatch } from 'react-redux';
-import { User, addUser } from '../../store/userSlice';
+import { User, addUser } from '@/store/userSlice';
 import { ServerData } from '@/types';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import Head from 'next/head';
 import { EIcons, Icon } from '@/components/icons/Icon';
 
-type DashboardProps = {};
-
-const Dashboard: React.FC<DashboardProps> = () => {
+const Dashboard: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();

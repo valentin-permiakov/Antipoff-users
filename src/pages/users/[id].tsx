@@ -8,9 +8,7 @@ import { useSelector } from 'react-redux';
 import styles from './user-page.module.scss';
 import User from '@/components/User/User';
 
-type UserPageProps = {};
-
-const UserPage: React.FC<UserPageProps> = () => {
+const UserPage: React.FC = () => {
   const router = useRouter();
   const usersData = useSelector((state: RootState) => state.users);
   const user = usersData.find((user) => user.id === Number(router.query.id));

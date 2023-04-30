@@ -1,56 +1,18 @@
+import { INPUTS } from '@/globalConst';
 import { resetState, updateState } from '@/store/signupSlice';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import Input, { InputProps } from './Input/Input';
+import Input from './Input/Input';
 import styles from './login-form.module.scss';
 
-type LoginFormProps = {};
-
-const LoginForm: React.FC<LoginFormProps> = () => {
+const LoginForm: React.FC = () => {
   const formState = useSelector((state: RootState) => state.signup);
   const dispatch = useDispatch();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
-  const INPUTS: Array<InputProps> = [
-    {
-      id: 'name',
-      labelText: 'Имя',
-      placeholder: 'Артур',
-      type: 'text',
-      value: formState.name.value,
-      error: formState.name.error,
-    },
-    {
-      id: 'email',
-      labelText: 'Электронная почта',
-      placeholder: 'example@mail.ru',
-      type: 'email',
-      value: formState.email.value,
-      error: formState.email.error,
-    },
-    {
-      id: 'password',
-      labelText: 'Пароль',
-      placeholder: '*****',
-      type: 'password',
-      value: formState.password.value,
-      error: formState.password.error,
-      isPassword: true,
-    },
-    {
-      id: 'confirmPassword',
-      labelText: 'Пароль',
-      placeholder: '*****',
-      type: 'password',
-      value: formState.confirmPassword.value,
-      error: formState.confirmPassword.error,
-      isPassword: true,
-    },
-  ];
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -92,7 +54,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
           ...formState,
           password: {
             ...formState.password,
-            error: 'Пароль должен быть длиннее 5 символов',
+            error: 'Пароль должен быть длиннее 8 символов',
           },
         })
       );
@@ -151,8 +113,8 @@ const LoginForm: React.FC<LoginFormProps> = () => {
           labelText={input.labelText}
           placeholder={input.placeholder}
           type={input.type}
-          value={input.value}
-          error={input.error}
+          value={formState[input.id].value}
+          error={formState[input.id].error}
           isPassword={input.isPassword}
           key={index}
         />

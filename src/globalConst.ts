@@ -28,7 +28,7 @@ export const INPUTS: Array<InputProps> = [
     isPassword: true,
   },
   {
-    id: 'password',
+    id: 'confirmPassword',
     labelText: 'Пароль',
     placeholder: '*****',
     type: 'password',
