@@ -1,3 +1,5 @@
+@use '@/styles/variables' as vars;
+
 .userInfo {
   margin: 0;
   margin-right: 130px;
@@ -9,14 +11,30 @@
 .contacts {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 25px;
 
   .contactLink {
     display: flex;
     align-items: center;
 
+    &:hover {
+      color: vars.$bgColorHighLight;
+    }
+
     span {
       margin-right: 8px;
     }
+  }
+}
+
+@media (max-width: 1020px) {
+  .userInfo {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 680px) {
+  .userInfo {
+    margin-right: 0;
   }
 }

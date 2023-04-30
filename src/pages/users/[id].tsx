@@ -34,6 +34,7 @@ const UserPage: React.FC<UserPageProps> = () => {
         <Header
           containerClass='headerFlex'
           backURL
+          headerClass='flexStart'
         >
           <UserInfo
             avatar={user.avatar}

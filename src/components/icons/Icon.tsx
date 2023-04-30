@@ -4,6 +4,8 @@ import EyeOn from './EyeOn';
 import PhoneIcon from './PhoneIcon';
 import EmailIcon from './EmailIcon';
 import ArrowIcon from './ArrowIcon';
+import ExitIcon from './ExitIcon';
+import BackIcon from './BackIcon';
 
 export enum EIcons {
   eyeOff = 'EyeOff',
@@ -11,6 +13,8 @@ export enum EIcons {
   phoneIcon = 'PhoneIcon',
   emailIcon = 'EmailIcon',
   arrowIcon = 'ArrowIcon',
+  exitIcon = 'ExitIcon',
+  backIcon = 'BackIcon',
 }
 
 interface IIconProps {
@@ -47,6 +51,18 @@ export const Icon = ({ name, width = 24, height = 24 }: IIconProps) => {
     ),
     ArrowIcon: (
       <ArrowIcon
+        height={height}
+        width={width}
+      />
+    ),
+    ExitIcon: (
+      <ExitIcon
+        height={height}
+        width={width}
+      />
+    ),
+    BackIcon: (
+      <BackIcon
         height={height}
         width={width}
       />

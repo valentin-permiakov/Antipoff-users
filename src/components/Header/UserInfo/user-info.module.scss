@@ -16,3 +16,29 @@
   font-size: 32px;
   line-height: 38px;
 }
+
+@media (max-width: 1060px) {
+  .nameContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .userImage {
+    margin-right: 0;
+  }
+
+  .userName {
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+  }
+
+  .userNickname {
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+  }
+}

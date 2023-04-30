@@ -9,42 +9,105 @@
   background-color: vars.$bgColorHighLight;
   color: vars.$bgColorMain;
 
-  &.headerFlex {
+  &.flexStart {
     justify-content: flex-start;
   }
+}
 
-  .btnContainer {
-    position: absolute;
-    top: 32px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 80px;
-    padding-left: 80px;
+.btnContainer {
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 80px;
+  padding-left: 80px;
 
-    &.noBack {
-      justify-content: flex-end;
+  &.noBack {
+    justify-content: flex-end;
+  }
+
+  .headerBtn {
+    @include mixins.btnReset;
+    padding: 8px 16px;
+    border: 1px solid vars.$textColorLight;
+    color: vars.$textColorLight;
+    border-radius: 8px;
+
+    &:hover {
+      border-color: vars.$inputPlaceHolderColor;
     }
 
-    .headerBtn {
-      @include mixins.btnReset;
-      padding: 8px 16px;
-      border: 1px solid vars.$textColorLight;
-      color: vars.$textColorLight;
-      border-radius: 8px;
+    .btnIcon {
+      display: none;
     }
+  }
+}
+
+.headerFlex {
+  display: flex;
+  align-items: center;
+  padding-left: 188px;
+}
+
+.headerStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 846px;
+}
+
+@media (max-width: 1060px) {
+  .header.flexStart {
+    justify-content: center;
   }
 
   .headerFlex {
-    display: flex;
-    align-items: center;
-    padding-left: 188px;
+    flex-direction: column-reverse;
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 850px) {
+  .headerStack {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    min-height: 281px;
+  }
+
+  .btnContainer {
+    top: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    .headerBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-color: transparent;
+
+      &:hover {
+        border-color: vars.$bgColorMain;
+      }
+
+      .btnText {
+        display: none;
+      }
+
+      .btnIcon {
+        display: block;
+      }
+    }
   }
 
   .headerStack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 846px;
+    max-width: 334px;
   }
 }
